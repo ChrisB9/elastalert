@@ -21,9 +21,7 @@ RUN apk add --update --no-cache ca-certificates openssl-dev openssl libffi-dev g
 
 WORKDIR "${ELASTALERT_HOME}"
 
-# Install Elastalert.
-# see: https://github.com/Yelp/elastalert/issues/1654
-RUN sed -i 's/jira>=2.0.0/g' setup.py && \
+RUN setup.py && \
     python3 setup.py install && \
     pip3 install -r requirements.txt
 
