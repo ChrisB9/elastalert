@@ -21,8 +21,7 @@ RUN apk add --update --no-cache ca-certificates openssl-dev openssl libffi-dev g
 
 WORKDIR "${ELASTALERT_HOME}"
 
-RUN setup.py && \
-    python3 setup.py install && \
+RUN python3 setup.py install && \
     pip3 install -r requirements.txt
 
 FROM node:alpine
